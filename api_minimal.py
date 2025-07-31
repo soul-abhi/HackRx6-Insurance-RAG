@@ -140,7 +140,7 @@ def answer_question(question: str, document_text: str) -> AnswerResponse:
             justification=f"Processing error: {str(e)[:100]}"
         )
 
-@app.post("/hackrx/run", response_model=RunResponse)
+@app.post("/api/v1/hackrx/run", response_model=RunResponse)
 async def run_submission(request: RunRequest, authorized: bool = Depends(verify_token)):
     """Main API endpoint"""
     try:
@@ -162,6 +162,12 @@ async def run_submission(request: RunRequest, authorized: bool = Depends(verify_
         raise
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Server error: {str(e)}")
+
+# Legacy endpoint for backward compatibility
+@app.post("/hackrx/run", response_model=RunResponse)
+async def run_submission_legacy(request: RunRequest, authorized: bool = Depends(verify_token)):
+    """Legacy API endpoint - redirects to new version"""
+    return await run_submission(request, authorized)
 
 @app.get("/")
 async def root():
