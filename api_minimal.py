@@ -20,7 +20,7 @@ except ImportError:
     PDF_AVAILABLE = False
 
 # Configure Google AI
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY", "AIzaSyA8Sw9Kt3S72fFGwAUzP53OM6GPWTVS0Ik")
 if not GOOGLE_API_KEY:
     raise ValueError("GOOGLE_API_KEY environment variable is required")
 

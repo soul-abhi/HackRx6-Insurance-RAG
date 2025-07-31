@@ -1,7 +1,7 @@
 ---
 title: HackRx Insurance RAG API
 emoji: 🏥
-colorFrom: blue 
+colorFrom: blue
 colorTo: green
 sdk: gradio
 sdk_version: 4.7.1
@@ -36,7 +36,7 @@ curl -X POST "https://soul-abhi-hackrx-insurance-rag.hf.space/hackrx/run" \
 
 ## 🎯 Features
 
-- ✅ Fast PDF processing  
+- ✅ Fast PDF processing
 - ✅ Google Gemini AI integration
 - ✅ Structured JSON responses
 - ✅ Bearer token authentication
@@ -56,6 +56,7 @@ curl -X POST "https://soul-abhi-hackrx-insurance-rag.hf.space/hackrx/run" \
   ]
 }
 ```
+
 - **Response caching** for improved performance
 - **Sub-10 second response times** for hackathon requirements
 

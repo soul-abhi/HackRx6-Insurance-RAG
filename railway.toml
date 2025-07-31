@@ -1,7 +1,0 @@
-[build]
-builder = "NIXPACKS"
-
-[deploy]
-healthcheckPath = "/docs"
-healthcheckTimeout = 100
-restartPolicyType = "ON_FAILURE"
