@@ -32,7 +32,15 @@ import google.generativeai as genai
 import fitz
 
 # --- 0. Load Environment Variables ---
-load_dotenv('config/.env')
+# Try multiple paths for .env file
+import os
+if os.path.exists('config/.env'):
+    load_dotenv('config/.env')
+elif os.path.exists('.env'):
+    load_dotenv('.env')
+else:
+    # For production, environment variables should be set directly
+    pass
 
 # --- ChromaDB Configuration (Global) ---
 chroma_client = chromadb.PersistentClient(path="./chroma_db")
