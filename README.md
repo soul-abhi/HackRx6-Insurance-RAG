@@ -14,15 +14,18 @@ A high-performance Retrieval-Augmented Generation (RAG) system for insurance doc
 ## 📋 API Endpoints
 
 ### POST `/hackrx/run`
+
 Process insurance documents and answer questions.
 
 **Headers:**
+
 ```
 Authorization: Bearer 6bbbd39e54cf65cf7384bbf0011dce9d10a4b7a8818d463d01ba6d016d9acdc2
 Content-Type: application/json
 ```
 
 **Request Body:**
+
 ```json
 {
   "documents": "https://example.com/policy.pdf",
@@ -34,6 +37,7 @@ Content-Type: application/json
 ```
 
 **Response:**
+
 ```json
 {
   "answers": [
@@ -56,6 +60,7 @@ Content-Type: application/json
 ## 🌐 Deployment
 
 This project is configured for deployment on:
+
 - Render
 - Railway
 - Heroku
