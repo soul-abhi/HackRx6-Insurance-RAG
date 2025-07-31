@@ -20,9 +20,19 @@ except ImportError:
     PDF_AVAILABLE = False
 
 # Configure Google AI
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY", "AIzaSyAYOSaY0CpMUG5En8UYv6OE2Hq9ZoXZg")
-genai.configure(api_key=GOOGLE_API_KEY)
-model = genai.GenerativeModel('gemini-1.5-flash')
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
+if not GOOGLE_API_KEY:
+    raise ValueError("GOOGLE_API_KEY environment variable is required")
+
+try:
+    genai.configure(api_key=GOOGLE_API_KEY)
+    model = genai.GenerativeModel('gemini-1.5-flash')
+    # Test the API key
+    test_response = model.generate_content("Test", generation_config=genai.types.GenerationConfig(max_output_tokens=1))
+    print("✅ Google API Key is valid and working!")
+except Exception as e:
+    print(f"❌ API Key Error: {str(e)}")
+    raise ValueError(f"Invalid Google API Key: {str(e)}")
 
 # FastAPI app
 app = FastAPI(
